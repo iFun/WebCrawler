@@ -17,5 +17,43 @@ def write_file(path, data):
     f = open(path, 'w')
     f.write(data)
     f.close()
-create_data_file('bill','https://thenewboston.com/')
+
+# Add data onto an existing file
+# add a new link to the new line
+def append_to_file(path,data):
+    with open(path,'a') as file:
+        file.write(data + '\n')
+
+# Delete the contents of a file
+def delete_file_contents(path):
+    with open(path,'w'):
+        pass #keyword whenever you want to do nothing
+
+# Read a file and convert each line to set items
+def file_to_Set(file_name):
+    results = set()
+    with open(file_name,'rt') as f:
+        for line in f:
+            results.add(line.replace('\n',''))
+    return results
+# Iterate through a set, each item will be a new line in the file
+def set_to_file(links,file):
+    delete_file_contents(file)
+    for link in sorted(links):
+        append_to_file(file,link)
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
