@@ -1,4 +1,6 @@
-from urllib.requet import urlopen
+#from six.moves.urllib.parse import urlparse
+import urlparse
+#from urllib.requet import urlopen
 from link_finder import LinkFinder
 from general import *
 
@@ -28,7 +30,7 @@ class Spider:
     @staticmethod
     def boot():
         create_project_dir(Spider.porject_name)
-        create_date_files(Spider.base_url)
+        create_data_files(Spider.base_url)
         Spider.queue = file_to_set(Spider.queue_file)
         Spider.crawled = file_to_set(Spider.crawled_file)
 
