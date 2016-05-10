@@ -1,7 +1,7 @@
 import HTMLParser
 import urlparse
 
-class LinkFinder(HTMLParser):
+class LinkFinder():
  
     def __init__(self, base_url, page_url):
         super().__init__()
@@ -9,7 +9,7 @@ class LinkFinder(HTMLParser):
         self.page_url = page_url
         self.links = set()
 
-    def handle_starttage(self,tag,attrs):
+    def handle_starttage(self, tag, attrs):
         if tag == 'a':
             for (attribute, value) in attrs:
             	if attribute == 'href':
@@ -19,7 +19,5 @@ class LinkFinder(HTMLParser):
     def page_links(self):
     	return self.links
 
-    def error(self,message):
+    def error(self, message):
         pass
-
-finder = LinkFinder()

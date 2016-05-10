@@ -30,12 +30,12 @@ class Spider:
     @staticmethod
     def boot():
         create_project_dir(Spider.porject_name)
-        create_data_files(Spider.base_url)
+        create_data_file(Spider.porject_name, Spider.base_url)
         Spider.queue = file_to_set(Spider.queue_file)
         Spider.crawled = file_to_set(Spider.crawled_file)
 
     @staticmethod
-    def crawl_page():
+    def crawl_page(thread_name, page_url):
         if page_url not in Spider.crawled:
             print(thread_name + 'now crawling' + page_url)
             print('Queue' + str(len(Spider.queue)) + ' | Crawled ' + str(len(Spider.crawled)))
